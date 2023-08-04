@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tchat</title>
+</head>
+<body>
+    <h1> Welcome on lobby :  "<%= name%>"</h1>
+    <div id= "tchatBoxExt">
+        <div id = "tchatBoxInt">
+            <ul>
+                <% for (let i = 0; i < messages.length; i++) { %>
+                    <li><%= messages[i].name%> : <%= messages[i].text %></li>
+                <% } %>
+            </ul>
+        </div>
+        <div id = "sendMessage">
+            <form action = "/api/lobby/<% numLobby %>" method="post">
+                    <textarea id="message" name="message" rows="5" cols="50" placeholder="Your message" required></textarea>
+                    <input id="userId" name="userId" type="number">
+                    <button type="submit">Send message !</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
